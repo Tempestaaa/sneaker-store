@@ -1,5 +1,6 @@
 "use client";
 
+import Logo from "@/components/layout/logo";
 import Sidebar from "@/components/layout/sidebar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,12 +39,13 @@ export default function Navbar() {
       }`}
     >
       <Sheet>
-        <section className="">
+        <section className="flex-center gap-4">
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon">
               <HiOutlineMenuAlt1 className="size-6" />
             </Button>
           </SheetTrigger>
+          <Logo />
         </section>
 
         <section className="flex-center gap-4">

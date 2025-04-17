@@ -39,10 +39,18 @@ export default function Hero() {
             </Button>
 
             <div className="flex-center mt-auto gap-4 *:size-6 text-primary">
-              <AiOutlineTikTok />
-              <IoLogoInstagram />
-              <FaXTwitter />
-              <FaFacebook />
+              <Button variant="ghost" size="icon" className="p-4">
+                <AiOutlineTikTok />
+              </Button>
+              <Button variant="ghost" size="icon" className="p-4">
+                <IoLogoInstagram />
+              </Button>
+              <Button variant="ghost" size="icon" className="p-4">
+                <FaXTwitter />
+              </Button>
+              <Button variant="ghost" size="icon" className="p-4">
+                <FaFacebook />
+              </Button>
             </div>
           </section>
 

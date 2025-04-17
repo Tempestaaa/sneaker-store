@@ -1,8 +1,14 @@
+"use client";
+
+import Logo from "@/components/layout/logo";
 import { SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import Link from "next/link";
-import { PiSneakerFill } from "react-icons/pi";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
+  const pathname = usePathname();
+  const isActive = (href: string) => pathname === href;
+
   const items = [
     {
       label: "Home",
@@ -25,9 +31,8 @@ export default function Sidebar() {
   return (
     <SheetContent side="left">
       <SheetHeader>
-        <SheetTitle className="flex-center justify-center-safe gap-4 text-2xl font-bold">
-          <PiSneakerFill className="size-8" />
-          <span>Sneaker Vault</span>
+        <SheetTitle>
+          <Logo />
         </SheetTitle>
       </SheetHeader>
 
@@ -36,7 +41,9 @@ export default function Sidebar() {
           <Link
             key={id}
             href={item.href}
-            className="py-4 px-2 hover:px-8 transition-[padding] font-medium text-4xl hover:bg-primary hover:text-background duration-300"
+            className={`py-4 px-2 hover:px-8 transition-[padding] font-medium text-4xl hover:bg-primary hover:text-background duration-300 ${
+              isActive(item.href) && "bg-primary text-background px-8"
+            }`}
           >
             {item.label}
           </Link>

@@ -11,7 +11,7 @@ export default function ProductCard({ isInverted = false }: Props) {
     <div
       className={`${
         isInverted ? "inverted-item" : "item"
-      } p-4 relative size-full group overflow-hidden bg-radial from-background to-primary min-h-80`}
+      } p-4 relative size-full group overflow-hidden bg-radial from-background to-primary min-h-70`}
     >
       <Image
         src="/hero.png"
