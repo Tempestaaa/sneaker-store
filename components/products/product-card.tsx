@@ -8,7 +8,11 @@ type Props = {
 
 export default function ProductCard({ isInverted = false }: Props) {
   return (
-    <div className="p-4 relative size-full group overflow-hidden">
+    <div
+      className={`${
+        isInverted ? "inverted-item" : "item"
+      } p-4 relative size-full group overflow-hidden bg-radial from-background to-primary min-h-80`}
+    >
       <Image
         src="/hero.png"
         alt="test image"
@@ -22,7 +26,7 @@ export default function ProductCard({ isInverted = false }: Props) {
         </div>
       </Link> */}
 
-      <section className="absolute bottom-0 left-0 right-0 p-4 flex-center justify-between gap-4 group-hover:text-foreground duration-500">
+      <section className="absolute bottom-0 left-0 right-0 p-4 flex-center justify-between gap-4 text-foreground duration-500">
         <header>The Stride</header>
         <p>$190</p>
       </section>

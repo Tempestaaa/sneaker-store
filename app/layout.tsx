@@ -20,9 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased ${font.className}`}>
+      <body className={`antialiased ${font.className} flex flex-col min-h-dvh`}>
         <Navbar />
-        <main className="p-4">{children}</main>
+        <main className="p-4 flex-1">{children}</main>
         <Footer />
       </body>
     </html>

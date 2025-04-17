@@ -8,7 +8,7 @@ import { IoLogoInstagram } from "react-icons/io";
 
 export default function Hero() {
   return (
-    <article className="">
+    <article className="py-10">
       <header className="flex-center gap-16 justify-between">
         <h1 className="text-[16rem] font-bold leading-none tracking-tighter">
           Sneakers

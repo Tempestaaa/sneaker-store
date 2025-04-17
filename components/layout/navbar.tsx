@@ -1,3 +1,6 @@
+"use client";
+
+import Sidebar from "@/components/layout/sidebar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -6,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useEffect, useState } from "react";
 import {
   HiOutlineMenuAlt1,
   HiOutlineSearch,
@@ -13,8 +17,26 @@ import {
 } from "react-icons/hi";
 
 export default function Navbar() {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleSticky = () => {
+      if (window.scrollY > 64) setIsSticky(true);
+      else setIsSticky(false);
+    };
+    window.addEventListener("scroll", handleSticky);
+
+    return () => {
+      window.removeEventListener("scroll", handleSticky);
+    };
+  }, []);
+
   return (
-    <nav className="flex-center gap-4 justify-between h-16 px-4">
+    <nav
+      className={`flex-center gap-4 justify-between h-16 px-4 fixed top-0 left-0 w-full z-50 bg-background ${
+        isSticky && "shadow-md"
+      }`}
+    >
       <Sheet>
         <section className="">
           <SheetTrigger asChild>
@@ -23,10 +45,6 @@ export default function Navbar() {
             </Button>
           </SheetTrigger>
         </section>
-
-        <SheetContent side="left">
-          <SheetTitle>Hi, Im Steve</SheetTitle>
-        </SheetContent>
 
         <section className="flex-center gap-4">
           <label htmlFor="search">
@@ -44,6 +62,8 @@ export default function Navbar() {
             <HiOutlineShoppingBag className="size-6" />
           </Button>
         </section>
+
+        <Sidebar />
       </Sheet>
     </nav>
   );
